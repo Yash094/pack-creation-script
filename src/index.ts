@@ -15,7 +15,10 @@ const lootBoxImageFileName = "lootbox.png"; // The name of the image file you wa
 (async () => {
   try {
     // Instantiate the SDK with our private key onto the network
-    const sdk = ThirdwebSDK.fromPrivateKey(PRIVATE_KEY, network);
+    const sdk = ThirdwebSDK.fromPrivateKey(PRIVATE_KEY, network,{
+      clientId: process.env.TW_CLIENT_ID!,
+      secretKey: process.env.TW_SECRET_KEY!, 
+    });
     const storage = new ThirdwebStorage();
 
     // Connect to the edition and pack contracts
